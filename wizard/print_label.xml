@@ -1,0 +1,27 @@
+<openerp>
+    <data>
+
+         <act_window name="Print Shipping Label"
+            res_model="omniship.printer"
+            src_model="stock.out.package"
+            view_mode="form"
+            target="new"
+            key2="client_action_multi"
+            multi="True"
+            id="action_print_shipping_label"/>
+
+        <record id="omniship_label_printer" model="ir.ui.view">
+            <field name="name">Omniship Label Printer</field>
+            <field name="model">omniship.printer</field>
+            <field name="arch" type="xml">
+		<form>
+		    <group>
+		        <field name="name" invisible="1" />
+		        <field name="label_image" filename="name" readonly="1"/>
+		    </group>
+		</form>
+	    </field>
+	</record>
+
+    </data>
+</openerp>

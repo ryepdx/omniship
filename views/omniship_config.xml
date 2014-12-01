@@ -1,0 +1,51 @@
+<openerp>
+    <data>
+	<menuitem name="Shipping" id="root_shipping_menu" parent="base.menu_administration"/>
+
+        <record id="view_omniship_config_tree" model="ir.ui.view">
+            <field name="name">omniship Config Tree</field>
+            <field name="model">omniship</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="carrier" />
+                </tree>
+            </field>
+        </record>
+
+        <record id="view_omniship_config_form" model="ir.ui.view">
+            <field name="name">omniship Config Form</field>
+            <field name="model">omniship</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+			    <field name="carrier" />
+			    <field name="license_key" />
+			    <field name="account_number" />
+			    <field name="username" />
+			    <field name="password" />
+			    <field name="test_mode" />
+			    <field name="save_xml" />
+			    <field name="weight_uom" />
+			    <field name="length_uom" />
+			    <field name="label_image" />
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="action_omniship_config" model="ir.actions.act_window">
+            <field name="name">Multi Carrier Config</field>
+            <field name="res_model">omniship</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="view_type">form</field>
+            <field name="view_id" ref="view_omniship_config_tree"/>
+        </record>
+
+        <menuitem action="action_omniship_config"
+        id="menu_omniship_config"
+        parent="root_shipping_menu" />
+
+    </data>
+</openerp>

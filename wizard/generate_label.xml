@@ -1,0 +1,51 @@
+<openerp>
+    <data>
+
+         <act_window name="Generate Shipping Label"
+            res_model="omniship.processor"
+            src_model="stock.picking"
+            view_mode="form"
+            target="new"
+            key2="client_action_multi"
+            multi="True"
+            id="action_generate_shipping_label"/>
+
+        <record id="omniship_label_generator" model="ir.ui.view">
+            <field name="name">Omniship Label Generator</field>
+            <field name="model">omniship.processor</field>
+            <field name="arch" type="xml">
+		<form>
+		    <group>
+			<field name="delivery_method" required="1" on_change="onchange_delivery_method(delivery_method)" />
+			<field name="return_label" />
+		    </group>
+		    <group>
+			<field name="carrier" invisible="1" />
+			<field name="customs_tab" invisible="1" />
+		    </group>
+		    <group name="usps" string="Postal Service Options"
+			attrs="{'invisible': [('carrier', '!=', 'usps')]}" >
+			<field name="mailpiece_shape" />
+			<field name="mailpiece_dimensions" />
+			<field name="include_postage" />
+		    </group>
+		    <group name="customs" attrs="{'invisible': [('customs_tab', '=', False)]}">
+			<field name="integrated_form_type" />
+			<field name="label_sub_type" />
+		    </group>
+		    <group>
+		        <field name="declared_value" />
+		        <field name="weight" />
+		    </group>
+		    <group string="Package Dimensions" attrs="{'invisible': [('mailpiece_dimensions', '!=', False)]}">
+		        <field name="length" />
+			<field name="width" />
+		        <field name="height" />
+		    </group>
+		    <button name="wizard_prepare_shipment_request" type="object" string="Generate Label" />
+		</form>
+	    </field>
+	</record>
+
+    </data>
+</openerp>
