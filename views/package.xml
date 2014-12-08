@@ -1,17 +1,6 @@
 <openerp>
     <data>
 
-        <record id="view_stock_out_package_tree" model="ir.ui.view">
-            <field name="name">Stock Package Out Tree</field>
-            <field name="model">stock.out.package</field>
-            <field name="arch" type="xml">
-                <tree>
-		    <field name="picking" />
-                    <field name="tracking_number"/>
-                </tree>
-            </field>
-        </record>
-
         <record id="view_stock_out_package_form" model="ir.ui.view">
             <field name="name">Stock Package Out Form</field>
             <field name="model">stock.out.package</field>
@@ -24,16 +13,5 @@
                 </form>
             </field>
         </record>
-<!--
-        <record id="action_stock_out_package" model="ir.actions.act_window">
-            <field name="name">Trackable Packages</field>
-            <field name="type">ir.actions.act_window</field>
-            <field name="res_model">stock.out.package</field>
-            <field name="view_type">form</field>
-            <field name="view_mode">tree,form</field>
-        </record>
-
-	<menuitem action="action_stock_out_package" id="menu_action_stock_out_package" parent="stock.menu_stock_configuration" sequence="16" />
--->
     </data>
 </openerp>

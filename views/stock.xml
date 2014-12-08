@@ -1,34 +1,24 @@
 <openerp>
     <data>
 
-        <record id="view_picking__label_form" model="ir.ui.view">
+        <record id="view_picking_label_form" model="ir.ui.view">
             <field name="name">Picking Label Form</field>
             <field name="model">stock.picking</field>
-	    <field name="inherit_id" ref="stock.view_picking_form" />
+	    <field name="inherit_id" ref="stock_out_package.view_picking_package_form" />
             <field name="arch" type="xml">
 		<field name="state" position="before" >
 		    <button name="%(action_generate_shipping_label)d" type="action" string="Shipping Label" class="oe_highlight" />
 		</field>
-		<field name="carrier_id" position="replace" />
-		<!-- For all companies I ever work with, the shipping method is the most important detail
-		on a delivery order so why hide it? stupid! -->
-		<field name="origin" position="after" >
-		    <field name="carrier_id" />
+		<field name="package" position="replace">
+		    <field name="packages" widget="one2many_list" nolabel="1" >
+			<tree>
+			    <field name="tracking_number" />
+			    <field name="declared_value" />
+			    <field name="cost" />
+			    <button name="%(action_print_shipping_label)d" type="action" string="Print Label" class="oe_highlight"/>
+			 </tree>
+		    </field>
 		</field>
-		<page string="Additional Info" position="after">
-		    <page string="Packages" >
-			<group string="Packages" >
-			    <field name="packages" widget="one2many_list" nolabel="1" >
-			        <tree>
-				    <field name="tracking_number" />
-				    <field name="declared_value" />
-				    <field name="cost" />
-				    <button name="%(action_print_shipping_label)d" type="action" string="Print Label" class="oe_highlight"/>
-			        </tree>
-			    </field>
-			</group>
-		    </page>
-		</page>
 	    </field>
 	</record>
 
