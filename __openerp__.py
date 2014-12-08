@@ -3,7 +3,7 @@
     'version': '1.1',
     'author': 'Kyle Waid',
     'category': 'Sales Management',
-    'depends': ['delivery'],
+    'depends': ['stock_package'],
     'website': 'https://www.gcotech.com',
     'description': """ 
     """,
