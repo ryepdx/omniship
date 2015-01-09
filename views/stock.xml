@@ -15,6 +15,7 @@
 			    <field name="tracking_number" />
 			    <field name="declared_value" />
 			    <field name="cost" />
+<!--			    <button name="return_label_image" string="Print Label" type="object"  class="oe_highlight"/> -->
 			    <button name="%(action_print_shipping_label)d" type="action" string="Print Label" class="oe_highlight"/>
 			 </tree>
 		    </field>

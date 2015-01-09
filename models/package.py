@@ -15,8 +15,6 @@ class StockOutPackage(osv.osv):
 
     _columns = {
 #	'name': fields.function(_make_name, type="char", method=True, string='Name', select="1", size=150, store=True),
-        'mailpiece_shape': fields.many2one('usps.mailpiece.shape',
-            'MailPiece Shape'),
 	'refund_status': fields.text('Refund Status'),
 	'refund_approved': fields.boolean('Refund Approved'),
         'label_sub_type': fields.selection([
@@ -29,7 +27,7 @@ class StockOutPackage(osv.osv):
         ], 'Form Type'),
         'mailpiece_shape': fields.many2one('usps.mailpiece.shape',
             'MailPiece Shape'),
-        'mailpiece_dimensions': fields.many2one('usps.mailpiece.dimensions',
+        'mailpiece_dimensions': fields.many2one('mailpiece.dimensions',
             'MailPiece Dimensions'),
 	'declared_value': fields.float('Declared Value'),
 	'length': fields.float('Length'),
@@ -37,7 +35,10 @@ class StockOutPackage(osv.osv):
 	'height': fields.float('Height'),
 	'include_postage': fields.boolean('Include Postage'),
 	'cost': fields.float('Package Cost'),
-	'digest': fields.binary('Information digest for DIGEST'),
-	'file': fields.binary('Label Image'),
+	'digest': fields.binary('Information digest for DIGEST', copy=False),
+	'file': fields.binary('Label Image', copy=False),
     }
+
+
+
 

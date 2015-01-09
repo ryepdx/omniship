@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+  <data>
+      <report id="report_omniship_label"
+            name="omniship.label"
+            auto="False"
+            model="stock.out.package"
+            file="omniship/report/omniship_label.mako"
+            string="Shipping Label"
+            parser="omniship.report.omniship_report.OmnishipLabel"
+            header="False"
+            report_type="webkit"
+        />
+      <report id="report_omniship_form"
+            name="omniship.form"
+            auto="False"
+            model="stock.out.package"
+            file="omniship/report/omniship_form.mako"
+            string="Customs Forms"
+            parser="omniship.report.omniship_report.OmnishipForm"
+            header="False"
+            report_type="webkit"
+        />
+    </data>
+</openerp>

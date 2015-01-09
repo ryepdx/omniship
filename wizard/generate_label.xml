@@ -23,24 +23,27 @@
 			<field name="carrier" invisible="1" />
 			<field name="customs_tab" invisible="1" />
 		    </group>
-		    <group name="usps" string="Postal Service Options"
+		    <group name="usps" string="Select a Box Size or type in your own Box Dimensions"
 			attrs="{'invisible': [('carrier', '!=', 'usps')]}" >
-			<field name="mailpiece_shape" />
-			<field name="mailpiece_dimensions" />
-			<field name="include_postage" />
+			<field name="mailpiece_shape" string="Select Box"/>
+		    </group>
+                    <group string="Box Dimensions" attrs="{'invisible': [('mailpiece_shape', '!=', False), ('carrier', '=', 'usps')]}">
+			<field name="mailpiece_dimensions" on_change="onchange_mailpiece_dimensions(mailpiece_dimensions)" />
+			<newline/>
+                        <field name="length" />
+                        <field name="width" />
+                        <field name="height" />
+                    </group>
+		    <group>
+			<field name="include_postage" string="Show Postage on Label"/>
 		    </group>
 		    <group name="customs" attrs="{'invisible': [('customs_tab', '=', False)]}">
 			<field name="integrated_form_type" />
 			<field name="label_sub_type" />
 		    </group>
-		    <group>
+		    <group string="Enter Package Weight and Declared Value (Optional)">
 		        <field name="declared_value" />
 		        <field name="weight" />
-		    </group>
-		    <group string="Package Dimensions" attrs="{'invisible': [('mailpiece_dimensions', '!=', False)]}">
-		        <field name="length" />
-			<field name="width" />
-		        <field name="height" />
 		    </group>
 		    <button name="wizard_prepare_shipment_request" type="object" string="Generate Label" />
 		</form>

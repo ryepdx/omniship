@@ -24,3 +24,16 @@ class OmnishipPrinter(osv.osv_memory):
     def wizard_prepare_shipment_request(self, cr, uid, ids, context=None):
         wizard = self.browse(cr, uid, ids[0])
 	return True
+
+
+    def print_label(self, cr, uid, ids, context):
+	if not context:
+	    context = {}
+
+        datas = {'ids' : context.get('active_ids',[])}
+        datas['form'] = {}
+        return {
+            'type': 'ir.actions.report.xml',
+            'report_name':'omniship.label',
+            'datas' : datas,
+       }

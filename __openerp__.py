@@ -16,6 +16,7 @@
 	'views/omniship_config.xml',
 	'views/package.xml',
 	'data/services.xml',
+	'report.xml',
     ],
     'test': [
     ],
