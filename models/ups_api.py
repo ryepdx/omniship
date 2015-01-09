@@ -99,7 +99,8 @@ class OmnishipProcessor(osv.osv_memory):
                 ShipmentConfirm.insured_value_type(
                     MonetaryValue='0'))
 
-        if ups_package and ups_package.length and ups_package.height and ups_package.width:
+        if package.length and package.length > 0.1 and package.width \
+		and package.width > 0.1 and package.height and package.height > 0.1:
 
             package_dimension = ShipmentConfirm.dimensions_type(
                 Code=ups_uoms[1], Length=str(ups_package.length),
@@ -364,7 +365,7 @@ class OmnishipProcessor(osv.osv_memory):
 
                 images = [test]
                 w = 800
-                mh = 1650
+                mh = 1300
                 x = 0
                 y = 0
                 result = Image.new("1", (w, mh))

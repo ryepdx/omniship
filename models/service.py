@@ -12,8 +12,8 @@ class DeliveryCarrierService(osv.osv):
         res = []
         for record in self.browse(cr, uid, ids, context=context):
             name = record.name
-            if context.get('show_carrier'):
-                name = '(' + record.carrier + ') ' + name
+#            if context.get('show_carrier'):
+            name = '[' + record.carrier.upper() + '] ' + name
 
             res.append((record.id, name))
         return res

@@ -1,56 +1,57 @@
 <?xml version="1.0" encoding="utf-8"?>
 <openerp>
     <data noupdate="1">
-
-        <record id="mailpiece_dimensions_01" model="usps.mailpiece.dimensions">
+<!-- Predefined Dimensions. May deprecate this -->
+        <record id="mailpiece_dimensions_01" model="mailpiece.dimensions">
             <field name="name">USPS Sm Flat</field>
             <field name="length">8.5</field>
             <field name="width">5.5</field>
             <field name="height">1.75</field>
         </record>
 
-        <record id="mailpiece_dimensions_02" model="usps.mailpiece.dimensions">
+        <record id="mailpiece_dimensions_02" model="mailpiece.dimensions">
             <field name="name">USPS Md Box</field>
             <field name="length">11.2</field>
             <field name="width">8.75</field>
             <field name="height">6</field>
         </record>
 
-        <record id="mailpiece_dimensions_03" model="usps.mailpiece.dimensions">
+        <record id="mailpiece_dimensions_03" model="mailpiece.dimensions">
             <field name="name">USPS Md Box 2</field>
             <field name="length">14.0</field>
             <field name="width">12.0</field>
             <field name="height">3.5</field>
         </record>
 
-        <record id="mailpiece_dimensions_04" model="usps.mailpiece.dimensions">
+        <record id="mailpiece_dimensions_04" model="mailpiece.dimensions">
             <field name="name">USPS Lg Box</field>
             <field name="length">12.5</field>
             <field name="width">12.25</field>
             <field name="height">6.0</field>
         </record>
 
-        <record id="mailpiece_dimensions_05" model="usps.mailpiece.dimensions">
+        <record id="mailpiece_dimensions_05" model="mailpiece.dimensions">
             <field name="name">Envelope</field>
             <field name="length">6.0</field>
             <field name="width">10.0</field>
             <field name="height">0</field>
         </record>
 
-        <record id="mailpiece_dimensions_06" model="usps.mailpiece.dimensions">
+        <record id="mailpiece_dimensions_06" model="mailpiece.dimensions">
             <field name="name">USPS Cube</field>
             <field name="length">7.0</field>
             <field name="width">7.0</field>
             <field name="height">6.5</field>
         </record>
 
-        <record id="mailpiece_dimensions_07" model="usps.mailpiece.dimensions">
+        <record id="mailpiece_dimensions_07" model="mailpiece.dimensions">
             <field name="name">Padded Envelope</field>
             <field name="length">8.0</field>
             <field name="width">10.0</field>
             <field name="height">0.5</field>
         </record>
 
+<!--  Services -->
         <record id="ship_method_01" model="delivery.carrier.service">
             <field name="name">Express Mail</field>
             <field name="active">True</field>
@@ -140,178 +141,118 @@
         </record>
 
         <record id="ship_method_12" model="delivery.carrier.service">
-            <field name="name">Express Plus or Worldwide Express Plus</field>
+            <field name="name">Worldwide Saver</field>
             <field name="active">True</field>
             <field name="carrier">ups</field>
-            <field name="service_code">EP</field>
-            <field name="service_type">domestic</field>
-        </record>
-        <record id="ship_method_13" model="delivery.carrier.service">
-            <field name="name">Express or Worldwide Express</field>
-            <field name="active">True</field>
-            <field name="carrier">ups</field>
-            <field name="service_code">ES</field>
-            <field name="service_type">domestic</field>
-        </record>
-        <record id="ship_method_14" model="delivery.carrier.service">
-            <field name="name">Express Saver or Worldwide Saver</field>
-            <field name="active">True</field>
-            <field name="carrier">ups</field>
-            <field name="service_code">SV</field>
-            <field name="service_type">domestic</field>
-        </record>
-        <record id="ship_method_15" model="delivery.carrier.service">
-            <field name="name">Expedited or Worldwide Expedited</field>
-            <field name="active">True</field>
-            <field name="carrier">ups</field>
-            <field name="service_code">EX</field>
+            <field name="service_code">65</field>
             <field name="service_type">domestic</field>
         </record>
         <record id="ship_method_16" model="delivery.carrier.service">
             <field name="name">Standard</field>
             <field name="active">True</field>
             <field name="carrier">ups</field>
-            <field name="service_code">ST</field>
+            <field name="service_code">11</field>
             <field name="service_type">domestic</field>
         </record>
         <record id="ship_method_17" model="delivery.carrier.service">
             <field name="name">3 Day Select</field>
             <field name="active">True</field>
             <field name="carrier">ups</field>
-            <field name="service_code">3DS</field>
-            <field name="service_type">domestic</field>
-        </record>
-        <record id="ship_method_18" model="delivery.carrier.service">
-            <field name="name">UPS Express (NA1)</field>
-            <field name="active">True</field>
-            <field name="carrier">ups</field>
-            <field name="service_code">ND</field>
+            <field name="service_code">12</field>
             <field name="service_type">domestic</field>
         </record>
         <record id="ship_method_19" model="delivery.carrier.service">
             <field name="name">Next Day Air Early AM</field>
             <field name="active">True</field>
             <field name="carrier">ups</field>
-            <field name="service_code">1DM</field>
+            <field name="service_code">14</field>
             <field name="service_type">domestic</field>
         </record>
         <record id="ship_method_20" model="delivery.carrier.service">
             <field name="name">Next Day Air</field>
             <field name="active">True</field>
             <field name="carrier">ups</field>
-            <field name="service_code">1DA</field>
+            <field name="service_code">01</field>
             <field name="service_type">domestic</field>
         </record>
         <record id="ship_method_21" model="delivery.carrier.service">
             <field name="name">Next Day Air Saver</field>
             <field name="active">True</field>
             <field name="carrier">ups</field>
-            <field name="service_code">1DP</field>
+            <field name="service_code">65</field>
             <field name="service_type">domestic</field>
         </record>
         <record id="ship_method_22" model="delivery.carrier.service">
             <field name="name">2nd Day Air AM</field>
             <field name="active">True</field>
             <field name="carrier">ups</field>
-            <field name="service_code">2DM</field>
+            <field name="service_code">59</field>
             <field name="service_type">domestic</field>
         </record>
         <record id="ship_method_23" model="delivery.carrier.service">
             <field name="name">2nd Day Air</field>
             <field name="active">True</field>
             <field name="carrier">ups</field>
-            <field name="service_code">2DA</field>
+            <field name="service_code">02</field>
             <field name="service_type">domestic</field>
         </record>
         <record id="ship_method_24" model="delivery.carrier.service">
             <field name="name">Ground</field>
             <field name="active">True</field>
             <field name="carrier">ups</field>
-            <field name="service_code">GND</field>
-            <field name="service_type">domestic</field>
-        </record>
-        <record id="ship_method_25" model="delivery.carrier.service">
-            <field name="name">Worldwide Express Plus</field>
-            <field name="active">True</field>
-            <field name="carrier">ups</field>
-            <field name="service_code">EP</field>
+            <field name="service_code">03</field>
             <field name="service_type">domestic</field>
         </record>
         <record id="ship_method_26" model="delivery.carrier.service">
             <field name="name">Worldwide Express</field>
             <field name="active">True</field>
             <field name="carrier">ups</field>
-            <field name="service_code">ES</field>
-            <field name="service_type">domestic</field>
+            <field name="service_code">66</field>
+            <field name="service_type">international</field>
         </record>
         <record id="ship_method_27" model="delivery.carrier.service">
-            <field name="name">Worldwide Saver (Express)</field>
+            <field name="name">Worldwide Saver</field>
             <field name="active">True</field>
             <field name="carrier">ups</field>
-            <field name="service_code">SV</field>
-            <field name="service_type">domestic</field>
+            <field name="service_code">65</field>
+            <field name="service_type">international</field>
         </record>
         <record id="ship_method_28" model="delivery.carrier.service">
             <field name="name">Worldwide Expedited</field>
             <field name="active">True</field>
             <field name="carrier">ups</field>
-            <field name="service_code">EX</field>
-            <field name="service_type">domestic</field>
-        </record>
-        <record id="ship_method_29" model="delivery.carrier.service">
-            <field name="name">SurePost Less than 1 lb</field>
-            <field name="active">True</field>
-            <field name="carrier">ups</field>
-            <field name="service_code">USL</field>
-            <field name="service_type">domestic</field>
-        </record>
-        <record id="ship_method_30" model="delivery.carrier.service">
-            <field name="name">SurePost 1 lb or Greater</field>
-            <field name="active">True</field>
-            <field name="carrier">ups</field>
-            <field name="service_code">USG</field>
-            <field name="service_type">domestic</field>
-        </record>
-        <record id="ship_method_31" model="delivery.carrier.service">
-            <field name="name">SurePost Bound Printed Matter</field>
-            <field name="active">True</field>
-            <field name="carrier">ups</field>
-            <field name="service_code">USB</field>
-            <field name="service_type">domestic</field>
-        </record>
-        <record id="ship_method_32" model="delivery.carrier.service">
-            <field name="name">SurePost Media</field>
-            <field name="active">True</field>
-            <field name="carrier">ups</field>
-            <field name="service_code">USM</field>
+            <field name="service_code">08</field>
             <field name="service_type">domestic</field>
         </record>
 
         <!-- USPS Mail Piece Shapes -->
-        <record id="shape_01" model="usps.mailpiece.shape">
-            <field name="name">Card</field>
-            <field name="value">Card</field>
-        </record>
-
-        <record id="shape_02" model="usps.mailpiece.shape">
-            <field name="name">Letter</field>
-            <field name="value">Letter</field>
-        </record>
-
-        <record id="shape_03" model="usps.mailpiece.shape">
-            <field name="name">Flat</field>
-            <field name="value">Flat</field>
-        </record>
-
         <record id="shape_04" model="usps.mailpiece.shape">
-            <field name="name">Parcel</field>
+            <field name="name">Box</field>
             <field name="value">Parcel</field>
         </record>
 
         <record id="shape_05" model="usps.mailpiece.shape">
-            <field name="name">LargeParcel</field>
+            <field name="name">Large Box</field>
             <field name="value">LargeParcel</field>
         </record>
+
+        <record id="shape_15" model="usps.mailpiece.shape">
+            <field name="name">Small Flat Rate Box</field>
+            <field name="value">SmallFlatRateBox</field>
+        </record>
+
+        <record id="shape_16" model="usps.mailpiece.shape">
+            <field name="name">Medium Flat Rate Box</field>
+            <field name="value">MediumFlatRateBox</field>
+        </record>
+
+        <record id="shape_17" model="usps.mailpiece.shape">
+            <field name="name">Large Flat Rate Box</field>
+            <field name="value">LargeFlatRateBox</field>
+        </record>
+
+
+<!-- My client doesnt care about these services and it just adds clutter
 
         <record id="shape_06" model="usps.mailpiece.shape">
             <field name="name">IrregularParcel</field>
@@ -323,9 +264,24 @@
             <field name="value">OversizedParcel</field>
         </record>
 
+        <record id="shape_03" model="usps.mailpiece.shape">
+            <field name="name">Flat</field>
+            <field name="value">Flat</field>
+        </record>
+
         <record id="shape_08" model="usps.mailpiece.shape">
             <field name="name">FlatRateEnvelope</field>
             <field name="value">FlatRateEnvelope</field>
+        </record>
+
+        <record id="shape_01" model="usps.mailpiece.shape">
+            <field name="name">Card</field>
+            <field name="value">Card</field>
+        </record>
+
+        <record id="shape_02" model="usps.mailpiece.shape">
+            <field name="name">Letter</field>
+            <field name="value">Letter</field>
         </record>
 
         <record id="shape_09" model="usps.mailpiece.shape">
@@ -344,7 +300,7 @@
         </record>
 
         <record id="shape_12" model="usps.mailpiece.shape">
-            <field name="name">FlatRateWindowEnvelope</field>
+            <field name="name">Flat Rate Window Envelope</field>
             <field name="value">FlatRateWindowEnvelope</field>
         </record>
 
@@ -354,49 +310,31 @@
         </record>
 
         <record id="shape_14" model="usps.mailpiece.shape">
-            <field name="name">SmallFlatRateEnvelope</field>
+            <field name="name">Small Flat Rate Envelope</field>
             <field name="value">SmallFlatRateEnvelope</field>
         </record>
 
-        <record id="shape_15" model="usps.mailpiece.shape">
-            <field name="name">SmallFlatRateBox</field>
-            <field name="value">SmallFlatRateBox</field>
-        </record>
-
-        <record id="shape_16" model="usps.mailpiece.shape">
-            <field name="name">MediumFlatRateBox</field>
-            <field name="value">MediumFlatRateBox</field>
-        </record>
-
-        <record id="shape_16" model="usps.mailpiece.shape">
-            <field name="name">MediumFlatRateBox</field>
-            <field name="value">MediumFlatRateBox</field>
-        </record>
-
-        <record id="shape_17" model="usps.mailpiece.shape">
-            <field name="name">LargeFlatRateBox</field>
-            <field name="value">LargeFlatRateBox</field>
-        </record>
-
         <record id="shape_18" model="usps.mailpiece.shape">
-            <field name="name">DVDFlatRateBox</field>
+            <field name="name">DVD Flat Rate Box</field>
             <field name="value">DVDFlatRateBox</field>
         </record>
 
         <record id="shape_19" model="usps.mailpiece.shape">
-            <field name="name">LargeVideoFlatRateBox</field>
+            <field name="name">Large Video Flat Rate Box</field>
             <field name="value">LargeVideoFlatRateBox</field>
         </record>
 
         <record id="shape_20" model="usps.mailpiece.shape">
-            <field name="name">RegionalRateBoxA</field>
+            <field name="name">Regional Rate Box A</field>
             <field name="value">RegionalRateBoxA</field>
         </record>
 
         <record id="shape_21" model="usps.mailpiece.shape">
-            <field name="name">RegionalRateBoxB</field>
+            <field name="name">Regional Rate Box B</field>
             <field name="value">RegionalRateBoxB</field>
         </record>
+
 -->
+
     </data>
 </openerp>

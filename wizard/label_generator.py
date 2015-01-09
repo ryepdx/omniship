@@ -24,17 +24,23 @@ class OmnishipProcessor(osv.osv_memory):
         ], 'Form Type'),
         'mailpiece_shape': fields.many2one('usps.mailpiece.shape',
             'MailPiece Shape'),
-        'mailpiece_dimensions': fields.many2one('usps.mailpiece.dimensions',
-            'MailPiece Dimensions'),
+        'mailpiece_dimensions': fields.many2one('mailpiece.dimensions',
+            'Pre-Defined Dimensions'),
 	'include_postage': fields.boolean('Include Postage'),
     }
 
+    _defaults = {
+	'weight': 1.0,
+    }
+
+
     def default_get(self, cr, uid, fields, context=None):
         if context is None: context = {}
-        res = {}
+        res = super(OmnishipProcessor, self).default_get(cr, uid, fields, context)
 	picking_obj = self.pool.get('stock.picking')
         picking_ids = context.get('active_ids', [])
         picking = picking_obj.browse(cr, uid, picking_ids)[0]
+	res.update({'weight': 1.0})
 	if picking.carrier_id and picking.carrier_id.service:
 	    res.update({
 			'delivery_method': picking.carrier_id.id,
@@ -55,10 +61,25 @@ class OmnishipProcessor(osv.osv_memory):
 
         return res
 
+
     def onchange_delivery_method(self, cr, uid, ids, delivery_method):
 	delivery_obj = self.pool.get('delivery.carrier')
 	carrier = delivery_obj.browse(cr, uid, delivery_method)
 	return {'value': {'carrier': carrier.service.carrier}}	
+
+
+    def onchange_mailpiece_dimensions(self, cr, uid, ids, dimensions_id):
+	dimension_obj = self.pool.get('mailpiece.dimensions')
+	length = 0
+	width = 0
+	height = 0
+	if dimensions_id:
+	    dims = dimension_obj.browse(cr, uid, dimensions_id)
+	    length = dims.length
+	    width = dims.width
+	    height = dims.height
+
+	return {'value': {'length': length, 'width': width, 'height': height}}
 
 
     def wizard_prepare_shipment_request(self, cr, uid, ids, context=None):
@@ -89,8 +110,16 @@ class OmnishipProcessor(osv.osv_memory):
 
     def generate_shipping_label(self, cr, uid, carrier, package):
         if carrier == 'ups':
-	    return self.generate_ups_label(cr, uid, package)
+	    self.generate_ups_label(cr, uid, package)
 
 	else:
-	    return self.generate_endicia_label(cr, uid, package)
+	    self.generate_endicia_label(cr, uid, package)
 	    
+
+        datas = {'ids' : [package.id]}
+        datas['form'] = {}
+        return {
+            'type': 'ir.actions.report.xml',
+            'report_name':'omniship.label',
+            'datas' : datas,
+       }

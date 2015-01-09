@@ -16,8 +16,11 @@
             <field name="arch" type="xml">
 		<form>
 		    <group>
-		        <field name="name" invisible="1" />
-		        <field name="label_image" filename="name" readonly="1"/>
+		        <field name="name" />
+		    </group>
+		    <group>
+			<button name="print_label" type="object" string="Print Label" />
+<!--		        <field name="label_image" filename="name" readonly="1"/> -->
 		    </group>
 		</form>
 	    </field>

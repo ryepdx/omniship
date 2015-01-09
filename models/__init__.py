@@ -6,4 +6,3 @@ import service
 import delivery
 import partner
 import package
-import stock

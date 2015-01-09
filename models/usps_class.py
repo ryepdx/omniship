@@ -21,9 +21,9 @@ class USPSMailPieceShape(osv.osv):
     }
 
 
-class USPSMailPieceDimensions(osv.osv):
+class MailPieceDimensions(osv.osv):
     'Mail Piece Dimensions'
-    _name = 'usps.mailpiece.dimensions'
+    _name = 'mailpiece.dimensions'
     _rec_name = 'complete_name'
 
     def _name_get_fnc(self, cr, uid, ids, unknown1, unknown2, context=None):
