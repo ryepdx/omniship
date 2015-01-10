@@ -4,7 +4,7 @@
 
     :copyright: (c) 2011 by Openlabs Technologies & Consulting (P) Ltd.
 
-    :license: AGPL, see LICENSE for more details.
+     :license: AGPL, see LICENSE for more details.
 """
 
 from openerp.osv import osv, fields
@@ -26,18 +26,25 @@ class MailPieceDimensions(osv.osv):
     _name = 'mailpiece.dimensions'
     _rec_name = 'complete_name'
 
+
     def _name_get_fnc(self, cr, uid, ids, unknown1, unknown2, context=None):
         if not len(ids):
             return {}
         res = []
-        records = self.read(cr, uid, ids, ['length', 'width', 'height'],
+        records = self.read(cr, uid, ids, ['length', 'width', 'height', 'name'],
             context=context)
         for record in records:
-            complete_name = ' x '.join([
-                str(record['length']), str(record['width']), str(record['height'])
-            ])
+	    if not record['name']:
+                complete_name = ' x '.join([
+                    str(record['length']), str(record['width']), str(record['height'])
+                ])
+	    else:
+		complete_name = record['name']
+
             res.append((record['id'], complete_name))
+
         return dict(res)
+
 
     _columns = {
         'name': fields.char('Name', size=100),
