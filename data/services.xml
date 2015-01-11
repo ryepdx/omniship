@@ -2,49 +2,49 @@
 <openerp>
     <data noupdate="1">
 <!-- Predefined Dimensions. May deprecate this -->
-        <record id="mailpiece_dimensions_01" model="mailpiece.dimensions">
+        <record id="mailpiece_dimensions_01" model="delivery.box.shape">
             <field name="name">USPS Sm Flat</field>
             <field name="length">8.5</field>
             <field name="width">5.5</field>
             <field name="height">1.75</field>
         </record>
 
-        <record id="mailpiece_dimensions_02" model="mailpiece.dimensions">
+        <record id="mailpiece_dimensions_02" model="delivery.box.shape">
             <field name="name">USPS Md Box</field>
             <field name="length">11.2</field>
             <field name="width">8.75</field>
             <field name="height">6</field>
         </record>
 
-        <record id="mailpiece_dimensions_03" model="mailpiece.dimensions">
+        <record id="mailpiece_dimensions_03" model="delivery.box.shape">
             <field name="name">USPS Md Box 2</field>
             <field name="length">14.0</field>
             <field name="width">12.0</field>
             <field name="height">3.5</field>
         </record>
 
-        <record id="mailpiece_dimensions_04" model="mailpiece.dimensions">
+        <record id="mailpiece_dimensions_04" model="delivery.box.shape">
             <field name="name">USPS Lg Box</field>
             <field name="length">12.5</field>
             <field name="width">12.25</field>
             <field name="height">6.0</field>
         </record>
 
-        <record id="mailpiece_dimensions_05" model="mailpiece.dimensions">
+        <record id="mailpiece_dimensions_05" model="delivery.box.shape">
             <field name="name">Envelope</field>
             <field name="length">6.0</field>
             <field name="width">10.0</field>
             <field name="height">0</field>
         </record>
 
-        <record id="mailpiece_dimensions_06" model="mailpiece.dimensions">
+        <record id="mailpiece_dimensions_06" model="delivery.box.shape">
             <field name="name">USPS Cube</field>
             <field name="length">7.0</field>
             <field name="width">7.0</field>
             <field name="height">6.5</field>
         </record>
 
-        <record id="mailpiece_dimensions_07" model="mailpiece.dimensions">
+        <record id="mailpiece_dimensions_07" model="delivery.box.shape">
             <field name="name">Padded Envelope</field>
             <field name="length">8.0</field>
             <field name="width">10.0</field>
@@ -224,117 +224,6 @@
             <field name="service_code">08</field>
             <field name="service_type">domestic</field>
         </record>
-
-        <!-- USPS Mail Piece Shapes -->
-        <record id="shape_04" model="usps.mailpiece.shape">
-            <field name="name">Box</field>
-            <field name="value">Parcel</field>
-        </record>
-
-        <record id="shape_05" model="usps.mailpiece.shape">
-            <field name="name">Large Box</field>
-            <field name="value">LargeParcel</field>
-        </record>
-
-        <record id="shape_15" model="usps.mailpiece.shape">
-            <field name="name">Small Flat Rate Box</field>
-            <field name="value">SmallFlatRateBox</field>
-        </record>
-
-        <record id="shape_16" model="usps.mailpiece.shape">
-            <field name="name">Medium Flat Rate Box</field>
-            <field name="value">MediumFlatRateBox</field>
-        </record>
-
-        <record id="shape_17" model="usps.mailpiece.shape">
-            <field name="name">Large Flat Rate Box</field>
-            <field name="value">LargeFlatRateBox</field>
-        </record>
-
-
-<!-- My client doesnt care about these services and it just adds clutter
-
-        <record id="shape_06" model="usps.mailpiece.shape">
-            <field name="name">IrregularParcel</field>
-            <field name="value">IrregularParcel</field>
-        </record>
-
-        <record id="shape_07" model="usps.mailpiece.shape">
-            <field name="name">OversizedParcel</field>
-            <field name="value">OversizedParcel</field>
-        </record>
-
-        <record id="shape_03" model="usps.mailpiece.shape">
-            <field name="name">Flat</field>
-            <field name="value">Flat</field>
-        </record>
-
-        <record id="shape_08" model="usps.mailpiece.shape">
-            <field name="name">FlatRateEnvelope</field>
-            <field name="value">FlatRateEnvelope</field>
-        </record>
-
-        <record id="shape_01" model="usps.mailpiece.shape">
-            <field name="name">Card</field>
-            <field name="value">Card</field>
-        </record>
-
-        <record id="shape_02" model="usps.mailpiece.shape">
-            <field name="name">Letter</field>
-            <field name="value">Letter</field>
-        </record>
-
-        <record id="shape_09" model="usps.mailpiece.shape">
-            <field name="name">FlatRateLegalEnvelope</field>
-            <field name="value">FlatRateLegalEnvelope</field>
-        </record>
-
-        <record id="shape_10" model="usps.mailpiece.shape">
-            <field name="name">FlatRatePaddedEnvelope</field>
-            <field name="value">FlatRatePaddedEnvelope</field>
-        </record>
-
-        <record id="shape_11" model="usps.mailpiece.shape">
-            <field name="name">FlatRateGiftCardEnvelope</field>
-            <field name="value">FlatRateGiftCardEnvelope</field>
-        </record>
-
-        <record id="shape_12" model="usps.mailpiece.shape">
-            <field name="name">Flat Rate Window Envelope</field>
-            <field name="value">FlatRateWindowEnvelope</field>
-        </record>
-
-        <record id="shape_13" model="usps.mailpiece.shape">
-            <field name="name">FlatRateCardboardEnvelope</field>
-            <field name="value">FlatRateCardboardEnvelope</field>
-        </record>
-
-        <record id="shape_14" model="usps.mailpiece.shape">
-            <field name="name">Small Flat Rate Envelope</field>
-            <field name="value">SmallFlatRateEnvelope</field>
-        </record>
-
-        <record id="shape_18" model="usps.mailpiece.shape">
-            <field name="name">DVD Flat Rate Box</field>
-            <field name="value">DVDFlatRateBox</field>
-        </record>
-
-        <record id="shape_19" model="usps.mailpiece.shape">
-            <field name="name">Large Video Flat Rate Box</field>
-            <field name="value">LargeVideoFlatRateBox</field>
-        </record>
-
-        <record id="shape_20" model="usps.mailpiece.shape">
-            <field name="name">Regional Rate Box A</field>
-            <field name="value">RegionalRateBoxA</field>
-        </record>
-
-        <record id="shape_21" model="usps.mailpiece.shape">
-            <field name="name">Regional Rate Box B</field>
-            <field name="value">RegionalRateBoxB</field>
-        </record>
-
--->
 
     </data>
 </openerp>

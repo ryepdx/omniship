@@ -1,5 +1,5 @@
 import omniship
-import usps_class
+import shape_dimension
 import ups_api
 import endicia_api
 import service

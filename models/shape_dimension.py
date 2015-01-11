@@ -1,29 +1,10 @@
-# -*- coding: UTF-8 -*-
-"""
-    Endicia Integration with openerp
-
-    :copyright: (c) 2011 by Openlabs Technologies & Consulting (P) Ltd.
-
-     :license: AGPL, see LICENSE for more details.
-"""
-
 from openerp.osv import osv, fields
 from openerp.tools.translate import _
 
 
-class USPSMailPieceShape(osv.osv):
-    'Mail Piece Shapes'
-    _name = 'usps.mailpiece.shape'
-
-    _columns = {
-        'name': fields.char('Name', size=100, required=True),
-        'value': fields.char('value', size=100, required=True),
-    }
-
-
-class MailPieceDimensions(osv.osv):
-    'Mail Piece Dimensions'
-    _name = 'mailpiece.dimensions'
+class DeliveryBoxShape(osv.osv):
+    'Delivery Box Shape'
+    _name = 'delivery.box.shape'
     _rec_name = 'complete_name'
 
 
@@ -34,12 +15,12 @@ class MailPieceDimensions(osv.osv):
         records = self.read(cr, uid, ids, ['length', 'width', 'height', 'name'],
             context=context)
         for record in records:
-	    if not record['name']:
+            if not record['name']:
                 complete_name = ' x '.join([
                     str(record['length']), str(record['width']), str(record['height'])
                 ])
-	    else:
-		complete_name = record['name']
+            else:
+                complete_name = record['name']
 
             res.append((record['id'], complete_name))
 
@@ -47,13 +28,14 @@ class MailPieceDimensions(osv.osv):
 
 
     _columns = {
-        'name': fields.char('Name', size=100),
+        'name': fields.char('Name', size=100, required=True),
+	'value': fields.char('Value'),
+	'carrier': fields.selection([('ups', 'UPS'), ('usps', 'USPS')], 'Carrier', required=True),
         'complete_name': fields.function(_name_get_fnc, method=True,
             type="char", string='Full Name'),
         'length': fields.float('Length', digits=(6,3), required=True),
         'width': fields.float('Width', digits=(6,3), required=True),
-        'height': fields.float('Height(or Thickness)', digits=(6,3),
+        'height': fields.float('Height', digits=(6,3),
             required=True),
     }
-
 

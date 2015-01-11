@@ -230,22 +230,24 @@ class OmnishipProcessor(osv.osv_memory):
                         {
                 'LabelSize': 'DocTab',
                 'ContentsType': 'Merchandise',
-                'MailpieceShape': package.mailpiece_shape.value or 'Parcel',
+                'MailpieceShape': package.shape_dimension.value or 'Parcel',
                 'Value': value,
                 'Description': description[:50],
                 'IncludePostage':package.include_postage and 'TRUE' or 'FALSE',
                  }
         )
 
-        if package.mailpiece_dimensions:
-	    length = package.mailpiece_dimensions.length
-	    width = package.mailpiece_dimensions.width
-	    height = package.mailpiece_dimensions.height
 
-	elif package.length > 0 and package.width > 0 and package.height > 0:
+	if package.length > 0.1 and package.width > 0.1 and package.height > 0.1:
 	    length = package.length
 	    width = package.width
 	    height = package.height
+
+        elif package.shape_dimension:
+            dims = package.shape_dimension
+            length = dims.length
+            width = dims.width
+            height = dims.height
 
 	else:
 	    length = 1.0

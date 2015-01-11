@@ -1,0 +1,49 @@
+<openerp>
+    <data>
+
+        <record id="view_delivery_box_size_tree" model="ir.ui.view">
+            <field name="name">Delivery Box Shape Tree</field>
+            <field name="model">delivery.box.shape</field>
+            <field name="arch" type="xml">
+                <tree string="Carrier">
+                    <field name="complete_name"/>
+		    <field name="carrier" />
+                </tree>
+            </field>
+        </record>
+
+        <record id="view_delivery_box_shape_form" model="ir.ui.view">
+            <field name="name">Delivery Box Shape Form</field>
+            <field name="model">delivery.box.shape</field>
+            <field name="arch" type="xml">
+                <form string="Carrier" editable="top">
+                    <div class="oe_title">
+                        <label for="name" class="oe_edit_only"/>
+                        <h1>
+                            <field name="name"/>
+                        </h1>
+                    </div>
+		    <group>
+                        <field name="carrier" />
+		    </group>
+		    <group>
+			<field name="length" />
+			<field name="width" />
+			<field name="height" />
+		    </group>
+                </form>
+            </field>
+        </record>
+
+        <record id="action_delivery_box_shape" model="ir.actions.act_window">
+            <field name="name">Box Shape/Dimensions</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">delivery.box.shape</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+	<menuitem action="action_delivery_box_shape" id="menu_action_delivery_box_shape" parent="stock.menu_stock_configuration" sequence="20" />
+
+    </data>
+</openerp>

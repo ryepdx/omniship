@@ -23,12 +23,8 @@
 			<field name="carrier" invisible="1" />
 			<field name="customs_tab" invisible="1" />
 		    </group>
-		    <group name="usps" string="Select a Box Size or type in your own Box Dimensions"
-			attrs="{'invisible': [('carrier', '!=', 'usps')]}" >
-			<field name="mailpiece_shape" string="Select Box"/>
-		    </group>
-                    <group string="Box Dimensions" attrs="{'invisible': [('mailpiece_shape', '!=', False), ('carrier', '=', 'usps')]}">
-			<field name="mailpiece_dimensions" on_change="onchange_mailpiece_dimensions(mailpiece_dimensions)" />
+                    <group string="Box Shape/Dimensions" >
+			<field name="shape_dimension" on_change="onchange_shape_dimensions(shape_dimension)" />
 			<newline/>
                         <field name="length" />
                         <field name="width" />

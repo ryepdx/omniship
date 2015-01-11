@@ -1,7 +1,6 @@
 from openerp.osv import osv, fields
 
 
-
 class OmnishipProcessor(osv.osv_memory):
     _name = 'omniship.processor'
     _columns = {
@@ -22,10 +21,8 @@ class OmnishipProcessor(osv.osv_memory):
                 ('Form2976', 'Form2976(Same as CN22)'),
                 ('Form2976A', 'Form2976A(Same as CP72)'),
         ], 'Form Type'),
-        'mailpiece_shape': fields.many2one('usps.mailpiece.shape',
-            'MailPiece Shape'),
-        'mailpiece_dimensions': fields.many2one('mailpiece.dimensions',
-            'Pre-Defined Dimensions'),
+        'shape_dimension': fields.many2one('delivery.box.shape',
+            'Box Shape/Dimensions'),
 	'include_postage': fields.boolean('Include Postage'),
     }
 
@@ -47,12 +44,6 @@ class OmnishipProcessor(osv.osv_memory):
 			'carrier': picking.carrier_id.service.carrier,
 	    })
 
-	    if picking.carrier_id.service.carrier == 'usps':
-		mailpiece_ids = self.pool.get('usps.mailpiece.shape').search(\
-			cr, uid, [('value', '=', 'Parcel')])
-
-		if mailpiece_ids:
-		    res['mailpiece_shape'] = mailpiece_ids[0]
 
 	if picking.partner_id.country_id.code != 'US' or \
 		picking.partner_id.city.lower() in ['apo', 'fpo', 'dpo']:
@@ -68,13 +59,13 @@ class OmnishipProcessor(osv.osv_memory):
 	return {'value': {'carrier': carrier.service.carrier}}	
 
 
-    def onchange_mailpiece_dimensions(self, cr, uid, ids, dimensions_id):
-	dimension_obj = self.pool.get('mailpiece.dimensions')
+    def onchange_shape_dimensions(self, cr, uid, ids, shape_id):
+	dimension_obj = self.pool.get('delivery.box.shape')
 	length = 0
 	width = 0
 	height = 0
-	if dimensions_id:
-	    dims = dimension_obj.browse(cr, uid, dimensions_id)
+	if shape_id:
+	    dims = dimension_obj.browse(cr, uid, shape_id)
 	    length = dims.length
 	    width = dims.width
 	    height = dims.height

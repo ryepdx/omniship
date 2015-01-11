@@ -99,19 +99,29 @@ class OmnishipProcessor(osv.osv_memory):
                 ShipmentConfirm.insured_value_type(
                     MonetaryValue='0'))
 
-        if package.length and package.length > 0.1 and package.width \
-		and package.width > 0.1 and package.height and package.height > 0.1:
 
-            package_dimension = ShipmentConfirm.dimensions_type(
-                Code=ups_uoms[1], Length=str(ups_package.length),
-                Height=str(ups_package.height), Width=str(ups_package.width),
-                Description='None')
+        if package.length > 0.1 and package.width > 0.1 and package.height > 0.1:
+	    length = package.length
+	    width = package.width
+	    height = package.height
+
+	elif package.shape_dimension:
+	    dims = package.shape_dimension
+	    length = dims.length
+	    width = dims.width
+	    height = dims.height
+
         else:
-	    #Hardcode a failsafe here so there are no complaints!
-            package_dimension = ShipmentConfirm.dimensions_type(
-                Code=ups_uoms[1], Length=str(6.0),
-                Height=str(6.0), Width=str(6.0),
-                Description='None')
+	    length = 1.0
+	    width = 1.0
+	    heigth = 1.0
+
+
+        package_dimension = ShipmentConfirm.dimensions_type(
+	    Code=ups_uoms[1], Length=str(length),
+            Height=str(height), Width=str(width),
+            Description='None'
+	)
 
         xml_package = ShipmentConfirm.package_type(
             package_type,
@@ -123,6 +133,7 @@ class OmnishipProcessor(osv.osv_memory):
 
         shipment_service = ShipmentConfirm.shipment_service_option_type(
             SaturdayDelivery='None')
+
         return ([xml_package], shipment_service)
 
 
