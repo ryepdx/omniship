@@ -114,7 +114,7 @@ class OmnishipProcessor(osv.osv_memory):
         else:
 	    length = 1.0
 	    width = 1.0
-	    heigth = 1.0
+	    height = 1.0
 
 
         package_dimension = ShipmentConfirm.dimensions_type(
