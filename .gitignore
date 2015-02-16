@@ -2,3 +2,4 @@
 *.DS_Store
 *.save
 *.tmp
+.idea
