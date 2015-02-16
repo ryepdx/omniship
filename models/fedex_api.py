@@ -147,7 +147,7 @@ class FedEx(object):
         else:
             mailclass = 'Priority'
 
-        shipment.RequestedShipment.ServiceType = mailclass  # package.mail_class
+        shipment.RequestedShipment.ServiceType = package.picking.carrier_id.service_type.service_code
         shipment.RequestedShipment.ShippingChargesPayment.Payor.ResponsibleParty.AccountNumber = self.config.account_number
 
         # Specifies the label type to be returned.
