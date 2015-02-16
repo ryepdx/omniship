@@ -1,13 +1,12 @@
 <openerp>
     <data>
-
         <record id="view_delivery_box_size_tree" model="ir.ui.view">
             <field name="name">Delivery Box Shape Tree</field>
             <field name="model">delivery.box.shape</field>
             <field name="arch" type="xml">
                 <tree string="Carrier">
                     <field name="complete_name"/>
-		    <field name="carrier" />
+                    <field name="carrier"/>
                 </tree>
             </field>
         </record>
@@ -23,14 +22,14 @@
                             <field name="name"/>
                         </h1>
                     </div>
-		    <group>
-                        <field name="carrier" />
-		    </group>
-		    <group>
-			<field name="length" />
-			<field name="width" />
-			<field name="height" />
-		    </group>
+                    <group>
+                        <field name="carrier"/>
+                    </group>
+                    <group>
+                        <field name="length"/>
+                        <field name="width"/>
+                        <field name="height"/>
+                    </group>
                 </form>
             </field>
         </record>
@@ -43,7 +42,7 @@
             <field name="view_mode">tree,form</field>
         </record>
 
-	<menuitem action="action_delivery_box_shape" id="menu_action_delivery_box_shape" parent="stock.menu_stock_configuration" sequence="20" />
-
+        <menuitem action="action_delivery_box_shape" id="menu_action_delivery_box_shape"
+                  parent="stock.menu_stock_configuration" sequence="20"/>
     </data>
 </openerp>
