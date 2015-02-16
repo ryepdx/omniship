@@ -225,5 +225,47 @@
             <field name="service_type">domestic</field>
         </record>
 
+        <record id="ship_method_29" model="delivery.carrier.service">
+            <field name="name">2 Day</field>
+            <field name="active">True</field>
+            <field name="carrier">fedex</field>
+            <field name="service_code">FEDEX_2_DAY</field>
+            <field name="service_type">domestic</field>
+        </record>
+        <record id="ship_method_30" model="delivery.carrier.service">
+            <field name="name">Express Saver</field>
+            <field name="active">True</field>
+            <field name="carrier">fedex</field>
+            <field name="service_code">FEDEX_EXPRESS_SAVER</field>
+            <field name="service_type">domestic</field>
+        </record>
+        <record id="ship_method_31" model="delivery.carrier.service">
+            <field name="name">Ground</field>
+            <field name="active">True</field>
+            <field name="carrier">fedex</field>
+            <field name="service_code">FEDEX_GROUND</field>
+            <field name="service_type">domestic</field>
+        </record>
+        <record id="ship_method_32" model="delivery.carrier.service">
+            <field name="name">International Economy</field>
+            <field name="active">True</field>
+            <field name="carrier">fedex</field>
+            <field name="service_code">INTERNATIONAL_ECONOMY</field>
+            <field name="service_type">international</field>
+        </record>
+        <record id="ship_method_32" model="delivery.carrier.service">
+            <field name="name">International First Class</field>
+            <field name="active">True</field>
+            <field name="carrier">fedex</field>
+            <field name="service_code">INTERNATIONAL_FIRST</field>
+            <field name="service_type">international</field>
+        </record>
+        <record id="ship_method_32" model="delivery.carrier.service">
+            <field name="name">International Priority</field>
+            <field name="active">True</field>
+            <field name="carrier">fedex</field>
+            <field name="service_code">INTERNATIONAL_PRIORITY</field>
+            <field name="service_type">international</field>
+        </record>
     </data>
 </openerp>

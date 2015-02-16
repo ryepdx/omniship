@@ -20,14 +20,14 @@ class DeliveryCarrierService(osv.osv):
 
 
     _columns = {
-	'name': fields.char('Name'),
-	'active': fields.boolean('Active'),
-	'carrier': fields.selection([('ups', 'UPS'), ('usps', 'USPS')], 'Carrier', required=True),
-	'service_type': fields.selection([
-		('domestic', 'Domestic'),
-		('international', 'International')],
-		'Service Type'),
-	'service_code': fields.char('Service Code'),
+        'name': fields.char('Name'),
+        'active': fields.boolean('Active'),
+        'carrier': fields.selection([('ups', 'UPS'), ('usps', 'USPS'), ('fedex', 'FedEx')], 'Carrier', required=True),
+        'service_type': fields.selection([
+            ('domestic', 'Domestic'),
+            ('international', 'International')],
+            'Service Type'),
+        'service_code': fields.char('Service Code'),
     }
 
 
