@@ -16,6 +16,7 @@
 	'views/omniship_config.xml',
 	'views/package.xml',
 	'views/shape_dimension.xml',
+    'views/company.xml',
 	'data/services.xml',
 	'report.xml',
     ],
