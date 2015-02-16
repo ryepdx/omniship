@@ -1,4 +1,11 @@
+from collections import namedtuple
 from openerp.osv import fields, osv
+
+Customs = namedtuple("Customs", (
+    'signature', 'contents_type', 'contents_explanation', 'commodity_code',
+    'restriction', 'restriction_comments', 'undeliverable', 'eel_pfc', 'senders_copy', 'items'
+))
+CustomsItem = namedtuple("CustomsItem", ('description', 'quantity', 'weight', 'value', 'country_of_origin'))
 
 class res_company(osv.osv):
     _inherit = "res.company"
