@@ -8,6 +8,8 @@ class Omniship(osv.osv):
         'active': fields.boolean('Active'),
         'license_key': fields.char('License Key', size=100),
         'account_number': fields.char('Account Number/Shipper Number', size=100),
+        'meter_number': fields.char('Meter Number', size=64),
+        'integrator_id': fields.char('Integrator ID', size=64),
         'username': fields.char('Username', size=100),
         'password': fields.char('Password', size=100),
         'test_mode': fields.boolean('Test Mode'),
