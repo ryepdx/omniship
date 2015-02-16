@@ -79,12 +79,12 @@ class OmnishipProcessor(osv.osv_memory):
 
         for picking in picking_obj.browse(cr, uid, pickings):
             vals = {
-            'picking': picking.id,
-            'weight': wizard.weight or 0,
-            'length': wizard.length or 0,
-            'width': wizard.width or 0,
-            'height': wizard.height or 0,
-            'declared_value': wizard.declared_value,
+                'picking': picking.id,
+                'weight': wizard.weight or 0,
+                'length': wizard.length or 0,
+                'width': wizard.width or 0,
+                'height': wizard.height or 0,
+                'declared_value': wizard.declared_value,
             }
 
             package_id = package_obj.create(cr, uid, vals)

@@ -30,7 +30,6 @@ class DeliveryCarrierService(osv.osv):
         'service_code': fields.char('Service Code'),
     }
 
-
     _defaults = {
-	'active': True
+    	'active': True
     }
