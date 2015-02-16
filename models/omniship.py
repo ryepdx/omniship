@@ -4,7 +4,7 @@ from openerp.osv import osv, fields
 class Omniship(osv.osv):
     _name = 'omniship'
     _columns = {
-        'carrier': fields.selection([('ups', 'UPS'), ('usps', 'US Postal Service')], 'Carrier'),
+        'carrier': fields.selection([('ups', 'UPS'), ('usps', 'US Postal Service'), ('fedex', 'FedEx')], 'Carrier'),
         'active': fields.boolean('Active'),
         'license_key': fields.char('License Key', size=100),
         'account_number': fields.char('Account Number/Shipper Number', size=100),
