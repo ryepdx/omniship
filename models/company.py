@@ -38,9 +38,6 @@ class res_company(osv.osv):
         ), 'If package is undeliverable...', required=True),
         'customs_eel_pfc': fields.char('Customs EEL/PFC'),
         'customs_senders_copy': fields.boolean('Generate "Sender\'s Copy" of customs forms'),
-        'customs_form_type': fields.selection(
-            (("Form2976", "Form 2976"), ("Form2976A", "Form 2976A")), "Customs Form Type", required=True
-        ),
         'customs_commodity_code': fields.char('Customs Commodity Code', size=15), # 15 is the field length in the UPS API
     }
     _defaults = {
