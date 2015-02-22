@@ -13,6 +13,9 @@ from openerp.tools.translate import _
 class OmnishipProcessor(osv.osv_memory):
     _inherit = 'omniship.processor'
 
+    def get_usps_quotes(self, cr, uid, packages, context=None):
+        # TODO: Implement.
+        return []
 
     def generate_endicia_label(self, cr, uid, package, context=None):
         if context is None:

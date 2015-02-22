@@ -14,6 +14,10 @@ import subprocess
 class OmnishipProcessor(osv.osv_memory):
     _inherit = 'omniship.processor'
 
+    def get_ups_quotes(self, cr, uid, packages, context=None):
+        # TODO: Implement.
+        return []
+
     def generate_ups_label(self, cr, uid, package, context=None):
         omni_obj = self.pool.get('omniship')
         omni_id = omni_obj.search(cr, uid, [('active', '=', True), ('carrier', '=', 'ups')], limit=1)

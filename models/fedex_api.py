@@ -128,9 +128,9 @@ class FedEx(object):
             for service in rate_request.response.RateReplyDetails:
                 for detail in service.RatedShipmentDetails:
                     response['info'].append({
+                        'company': 'FedEx',
                         'service': service.ServiceType,
                         'package': service.PackagingType,
-                        'delivery_day': '',
                         'cost': float(detail.ShipmentRateDetail.TotalNetFedExCharge.Amount)
                     })
 
@@ -216,6 +216,10 @@ class FedEx(object):
 
 class OmnishipProcessor(osv.osv_memory):
     _inherit = 'omniship.processor'
+
+    def get_fedex_quotes(self, cr, uid, packages, context=None):
+        # TODO: Implement.
+        return []
 
     def generate_fedex_label(self, cr, uid, package, context=None):
         if context is None:
