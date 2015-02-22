@@ -20,6 +20,8 @@
                     <sheet>
                         <group>
                             <field name="carrier"/>
+                            <field name="partner_id"/>
+                            <field name="product_id"/>
                             <field name="license_key"/>
                             <field name="account_number"/>
                             <field name="username"/>

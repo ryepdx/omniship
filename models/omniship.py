@@ -17,6 +17,8 @@ class Omniship(osv.osv):
         'weight_uom': fields.selection([('KGS', 'KGS'), ('LBS', 'LBS')], 'Weights UOM'),
         'length_uom': fields.selection([('IN', 'IN'), ('CM', 'CM')], 'Length UOM'),
         'label_image': fields.binary('Label Header Image'),
+        'partner_id': fields.many2one('res.partner', 'Transport Company', required=True),
+        'product_id': fields.many2one('product.product', 'Delivery Product', required=True),
     }
 
     _defaults = {
