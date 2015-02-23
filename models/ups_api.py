@@ -1,5 +1,4 @@
 import base64
-from ups import ShipmentConfirm, ShipmentAccept, ShipmentVoid, PyUPSException
 from openerp.osv import osv, fields
 from lxml import etree
 from lxml.builder import E
@@ -10,6 +9,11 @@ from cStringIO import StringIO
 from tempfile import NamedTemporaryFile
 import subprocess
 
+try:
+    from ups import ShipmentConfirm, ShipmentAccept, ShipmentVoid, PyUPSException
+except ImportError:
+    from ups.shipping_package import ShipmentConfirm, ShipmentAccept, ShipmentVoid
+    from ups.base import PyUPSException
 
 class OmnishipProcessor(osv.osv_memory):
     _inherit = 'omniship.processor'
