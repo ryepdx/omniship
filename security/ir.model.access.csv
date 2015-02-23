@@ -5,6 +5,6 @@ access_delivery_carrier_service,delivery.carrier.service,model_delivery_carrier_
 access_omniship,omniship,model_omniship,base.group_sale_manager,1,1,1,1
 access_omniship_processor,omniship.processor,model_omniship_processor,base.group_sale_manager,1,1,1,1
 access_delivery_carrier_service,delivery.carrier.service,model_delivery_carrier_service,base.group_sale_manager,1,1,1,1
-access_omniship,omniship,model_omniship,base.group_stock_manager,1,1,1,1
-access_omniship_processor,omniship.processor,model_omniship_processor,base.group_stock_manager,1,1,1,1
-access_delivery_carrier_service,delivery.carrier.service,model_delivery_carrier_service,base.group_stock_manager,1,1,1,1
+access_omniship,omniship,model_omniship,stock.group_stock_manager,1,1,1,1
+access_omniship_processor,omniship.processor,model_omniship_processor,stock.group_stock_manager,1,1,1,1
+access_delivery_carrier_service,delivery.carrier.service,model_delivery_carrier_service,stock.group_stock_manager,1,1,1,1
