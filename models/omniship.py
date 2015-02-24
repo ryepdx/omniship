@@ -1,5 +1,5 @@
 from openerp.osv import osv, fields
-
+from openerp import SUPERUSER_ID
 
 class Omniship(osv.osv):
     _name = 'omniship'
@@ -21,8 +21,34 @@ class Omniship(osv.osv):
         'product_id': fields.many2one('product.product', 'Delivery Product', required=True),
     }
 
+    def _get_partner_id(self, cr, uid, context):
+        carrier_pool = self.pool.get("delivery.carrier")
+        carriers = carrier_pool.browse(cr, SUPERUSER_ID, carrier_pool.search(cr, SUPERUSER_ID, []))
+        if carriers:
+            return carriers[0].partner_id.id
+
+        partner_ids = self.pool.get("res.partners").search(cr, uid, [])
+        if partner_ids:
+            return partner_ids[0]
+
+        return None
+
+    def _get_product_id(self, cr, uid, context):
+        carrier_pool = self.pool.get("delivery.carrier")
+        carriers = carrier_pool.browse(cr, SUPERUSER_ID, carrier_pool.search(cr, SUPERUSER_ID, []))
+        if carriers:
+            return carriers[0].product_id.id
+
+        product_ids = self.pool.get("product.product").search(cr, uid, [])
+        if product_ids:
+            return product_ids[0]
+
+        return None
+
     _defaults = {
         'active': True,
+        'partner_id': _get_partner_id,
+        'product_id': _get_product_id
     }
 
     def get_ups_credentials(self, cr, uid, omni, context=None):
