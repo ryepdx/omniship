@@ -47,6 +47,7 @@ class Omniship(osv.osv):
 
     _defaults = {
         'active': True,
+        'test_mode': True,
         'partner_id': _get_partner_id,
         'product_id': _get_product_id
     }
