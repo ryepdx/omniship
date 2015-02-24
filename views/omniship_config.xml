@@ -24,6 +24,7 @@
                             <field name="product_id"/>
                             <field name="license_key"/>
                             <field name="account_number"/>
+                            <field name="meter_number"/>
                             <field name="username"/>
                             <field name="password"/>
                             <field name="test_mode"/>
